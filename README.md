@@ -6,8 +6,10 @@
 |nickname           |string       |null: false              |
 |email              |string       |null: false, unique: true|
 |encrypted_password |string       |null: false              |
-|name_kanji         |string       |null: false              |
-|name-kana          |string       |null: false              |
+|last_name_kanji    |string       |null: false              |
+|first_name_kanji   |string       |null: false              |
+|last_name-kana     |string       |null: false              |
+|first_name-kana    |string       |null: false              |
 |birthday           |date         |null: false              |
 
 ### Association
@@ -46,12 +48,13 @@
 ## adressテーブル
 |Column         |Type         |Options          |
 |---------------|-------------|-----------------|
-|postal_code    |integer      |null: false      |
-|prefecture     |integer      |null: false      |
+|postal_code    |string       |null: false      |
+|prefecture_id  |integer      |null: false      |
 |municiparity   |string       |null: false      |
 |house_number   |string       |null: false      |
 |building_name  |string       |                 |
-|parchase       |references   |foreign_key: true|
+|phone_number   |string       |null: false      |
+|purchase       |references   |foreign_key: true|
 
 ### Association
 - belongs_to :purchase
