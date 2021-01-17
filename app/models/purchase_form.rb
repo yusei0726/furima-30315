@@ -3,6 +3,7 @@ class PurchaseForm
   attr_accessor :postal_code, :prefecture_id, :municiparity, :house_number, :building_name, :phone_number, :user_id, :item_id, :token
 
   with_options presence: true do
+    validates :token
     validates :municiparity
     validates :house_number
     validates :prefecture_id, numericality: { other_than: 1 }
