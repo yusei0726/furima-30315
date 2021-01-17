@@ -33,7 +33,9 @@ private
   end
 
   def move_to_index
-    redirect_to action: :index if user_signed_in? && current_user.id == @item.user_id && @item.purchase != nil
+    if current_user.id == @item.user_id || @item.purchase != nil
+      redirect_to root_path
+    end
   end
 
   def set_item
