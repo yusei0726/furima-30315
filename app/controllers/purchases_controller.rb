@@ -17,15 +17,16 @@ class PurchasesController < ApplicationController
       render action: :index
     end
   end
-private
+
+  private
 
   def pay_item
-      Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-      Payjp::Charge.create(
-        amount: @item.price,
-        card: purchase_params[:token],
-        currency: 'jpy'
-      )
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.price,
+      card: purchase_params[:token],
+      currency: 'jpy'
+    )
   end
 
   def purchase_params
@@ -33,9 +34,7 @@ private
   end
 
   def move_to_index
-    if current_user.id == @item.user_id || @item.purchase != nil
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user.id == @item.user_id || !@item.purchase.nil?
   end
 
   def set_item
