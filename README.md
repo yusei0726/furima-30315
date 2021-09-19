@@ -1,5 +1,5 @@
 #  basic認証
-username: admin
+username: admin<br>
 password: 2222
 
 #  テーブル設計
