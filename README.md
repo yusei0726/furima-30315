@@ -1,3 +1,7 @@
+#  basic認証
+username: admin
+password: 2222
+
 #  テーブル設計
 
 ## usersテーブル
